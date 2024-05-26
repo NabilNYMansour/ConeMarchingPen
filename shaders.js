@@ -59,7 +59,7 @@ float mandleBox(vec3 pos) {
 }
 
 float scene(vec3 p) {
-    return mandleBox(p);
+	return mandleBox(p);
 }
 
 vec3 sceneNormal(vec3 p) // from https://iquilezles.org/articles/normalsSDF/
@@ -166,6 +166,7 @@ in float vDisTravelled;
 flat in int vSteps;
 
 void main() {
+    // If distance travelled is too big, clear color
     if (u_showConeMarchingEdges && vDisTravelled >= u_maxDis) {
         gl_FragColor = vec4(u_clearColor,1);
         return;
