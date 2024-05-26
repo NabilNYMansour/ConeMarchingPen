@@ -113,7 +113,7 @@ March coneMarch(vec3 cro, vec3 crd)
     for (;i < u_maxSteps; ++i) { // main loop
         p = cro + d * crd; // calculate new position
         cd = scene(p); // get scene distance
-        ccr = (d * u_camTanFov) / u_camPlaneSubdivisions; // calculate cone radius
+        ccr = (d * u_camTanFov)*2. / u_camPlaneSubdivisions; // calculate cone radius
         
         // if current distance is less than cone radius with some padding or our distance is too big, break loop
         if (cd < ccr*1.25 || d >= u_maxDis) break;
@@ -130,7 +130,7 @@ March coneMarch(vec3 cro, vec3 crd)
 export const vertCode = glsl`
 // to send to fragment shader
 out vec2 vUv;
-flat out float vDisTravelled;
+out float vDisTravelled;
 flat out int vSteps;
 
 void main() {
@@ -162,7 +162,7 @@ void main() {
 export const fragCode = glsl`
 // From vertex shader
 in vec2 vUv;
-flat in float vDisTravelled;
+in float vDisTravelled;
 flat in int vSteps;
 
 void main() {
