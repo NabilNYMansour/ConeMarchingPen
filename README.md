@@ -1,7 +1,6 @@
-# Ray-Marching-2D
+# Cone marching pen
 
-This is a simple 2D ray marching project.
-
+This is the code for the cone marching code pen: https://codepen.io/NabilNYMansour/pen/QWREdBR
 ## Description
 
-This project demonstrates the concept of ray marching in a 2D environment. Ray marching is a technique used in computer graphics to render complex shapes by marching along rays and determining their intersections with the scene.
+Cone marching is an optimization for ray marching that lets groups of rays (or a cone) march together which ends up removing a lot of repeated calculations: increasing the overall rendering performance.
